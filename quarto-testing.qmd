@@ -1,0 +1,43 @@
+---
+title: "quarto-testing"
+---
+
+```{r}
+df <- data.frame(x = rnorm(100, mean = 5, sd = 1),
+                 y = rnorm(100, mean = 7, sd = 0.8))
+```
+
+```{r}
+ojs_define(dfjs = df)
+```
+
+```{ojs}
+dfjs_tr = transpose(dfjs)
+dfjs_tr.filter(d => d.x > 6)
+```
+
+```{ojs}
+Plot.dot(dfjs_tr, {x: "x", y: "y", fill: "purple"}).plot()
+```
+
+```{ojs}
+import {chart as panchart} from "@d3/pannable-chart"
+
+panchart
+```
+
+```{ojs}
+import {viewof summary_data} from "@observablehq/summary-table"
+viewof summary_data
+```
+
+```{python}
+x = 15
+y = 20
+```
+
+```{python}
+ojs_define(x_py = x)
+```
+
+
